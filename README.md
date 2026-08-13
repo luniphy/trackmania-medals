@@ -18,6 +18,7 @@ A command-line tool that helps you track your progress toward earning Gold medal
 - [Usage](#usage)
 - [Docker](#docker)
 - [Feedback](#feedback)
+- [License](#license)
 
 ## Overview
 
