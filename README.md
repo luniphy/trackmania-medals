@@ -4,12 +4,13 @@
 
 # Trackmania TOTD Gold Medal Tracker
 
-A command-line tool that helps you track your progress toward earning Gold medals on every Track of the Day (TOTD) in Trackmania 2020 since its release. Browsing every TOTD in-game is slow and tedious — this tool automates the process and gives you a clear overview of what's left.
+A command-line tool that helps you track your progress toward earning Gold medals on every Track of the Day (TOTD) in Trackmania 2020 since its release.
 
 ![Output example](docs/Images/output_example.jpg)
 
 ## Table of Contents
 
+- [Overview](#overview)
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [How It Works](#how-it-works)
@@ -18,12 +19,15 @@ A command-line tool that helps you track your progress toward earning Gold medal
 - [Docker](#docker)
 - [Feedback](#feedback)
 
+## Overview
+
+Browsing through every track in-game to check its medal status is slow and tedious. This tool automates the process and gives you a clear overview of what's missing.
 
 ## Features
 
 - Lists all TOTDs where you are still missing the Gold medal
-- Displays for each track: **Date**, **Track name**, **Time gap (World Record → Gold medal time)**, and your **current personal medal**
-- Outputs results both to the console and as a `.txt` file on the desktop
+- Displays for each track: **Date**, **Track name**, **Time gap (World Record → Gold medal time)**, **Current personal medal**
+- Outputs results both to the console and as a `txt` file on the desktop
 - Summarizes your total medal count of all TOTD maps at the end
 
 
@@ -32,7 +36,7 @@ A command-line tool that helps you track your progress toward earning Gold medal
 ```
 ├── config/
 │   ├── accountId.txt          # Your Trackmania account ID
-│   └── credentials.json       # Ubisoft login credentials
+│   └── service_account.json   # Ubisoft service account credentials
 ├── data/
 │   ├── TOTDMaps.json          # TOTD map metadata
 │   ├── MedalMaps.json         # Medal times per map
@@ -53,9 +57,8 @@ A command-line tool that helps you track your progress toward earning Gold medal
 
 `tokens.py` handles the full authentication flow:
 
-1. Getting for **access** and **refresh tokens** for the Nadeo API.
+1. Getting **access** and **refresh tokens** for the Nadeo API audiences: **Core** & **Live**
 2. Refresh tokens are used to renew access tokens before they expire.
-3. Two separate Nadeo API audiences are used: **Core** & **Live**.
 4. A separate OAuth flow connects to the Trackmania OAuth API to retrieve your **account ID**, which is required for personal best times (PBs) on each map.
 
 ### Data Collection
@@ -75,17 +78,15 @@ All JSON files are stored locally under `data/` to reduce redundant API calls.
 - Python 3.x
 - A Trackmania 2020 account (Ubisoft login)
 - Required Python packages (install via `pip`):
-  ```
-  requests
-  numpy
-  ```
+  - `requests`
+  - `numpy`
 
 
 ## Usage
 
 1. Clone the repository.
   ```bash
-   git clone https://github.com/luniphys/trackmania-medals.git
+   git clone https://github.com/luniphy/trackmania-medals.git
    ```
 2. Install Python packages
   ```bash
@@ -95,11 +96,11 @@ All JSON files are stored locally under `data/` to reduce redundant API calls.
   ```bash
    python src/trackmania-medals/main.py
    ```
-3. On first run, enter your Ubisoft credentials. Tokens are saved locally for future runs.
+3. Enter your Ubisoft credentials on the API website. You may need to manually open the OAuth URL in your browser to login. Instructions are shown!
 
-> **Note:** The Nadeo API has a rate limit of **2 requests per second**. The tool automatically pauses between requests to stay within limits. As a result, the first run takes over **1 minute**. (Subsequent runs, with cached data, are faster).
+> **Note:** The Nadeo API has a rate limit of **2 requests per second**. The tool automatically pauses between requests to stay within limits. As a result, the first run takes a little longer. (Subsequent runs with cached data are faster).
 
-> **Note:** The token retrievement is also done via `main.py`, so there's no need to run `tokens.py`.
+> **Note:** The token retrievement is also done via `main.py`, so there's no need to run `tokens.py`. Tokens are saved locally for future runs.
 
 
 ## Docker
@@ -138,3 +139,8 @@ docker run --rm -it -p 8765:8765 trackmania-medals
 ## Feedback
 
 Bug reports, suggestions, and general feedback are welcome. Feel free reach out :)
+
+
+## License
+
+MIT © [luniphy](https://github.com/luniphy)
