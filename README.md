@@ -35,20 +35,26 @@ Browsing through every track in-game to check its medal status is slow and tedio
 ## Project Structure
 
 ```
-├── config/
-│   ├── accountId.txt          # Your Trackmania account ID
-│   └── service_account.json   # Ubisoft service account credentials
-├── data/
-│   ├── TOTDMaps.json          # TOTD map metadata
-│   ├── MedalMaps.json         # Medal times per map
-│   ├── PBMaps.json            # Your personal bests
-│   └── Final.json             # Merged data
-├── output/
-│   └── medals.txt             # Result file
-├── src/trackmania-medals/
-│   ├── main.py                # Map data retrieving functions
-│   └── tokens.py              # Token generation functions
-└── tokens/                    # Stored tokens
+trackmania-medals/
+├─ config/
+│  ├─ accountId.txt          # Your Trackmania account ID
+│  └─ service_account.json   # Ubisoft service account credentials
+├─ data/
+│  ├─ TOTDMaps.json          # TOTD map metadata
+│  ├─ MedalMaps.json         # Medal times per map
+│  ├─ PBMaps.json            # Your personal bests
+│  └─ Final.json             # Merged data
+├─ docs/Images               # Documentation images
+├─ output/
+│  └─ medals.txt             # Resulting file
+├─ src/trackmania-medals/
+│  ├─ main.py                # Map data retrieving functions
+│  └─ tokens.py              # Token generation functions
+├─ tokens/                   # Stored tokens
+├─ Dockerfile
+├─ LICENSE
+├─ README.md
+└─ requirements.txt          # Program dependencies
 ```
 
 
