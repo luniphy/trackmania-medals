@@ -44,11 +44,11 @@ trackmania-medals/
 │  ├─ MedalMaps.json         # Medal times per map
 │  ├─ PBMaps.json            # Your personal bests
 │  └─ Final.json             # Merged data
-├─ docs/Images               # Documentation images
+├─ docs/Images/              # Documentation images
 ├─ output/
 │  └─ medals.txt             # Resulting file
 ├─ src/trackmania-medals/
-│  ├─ main.py                # Map data retrieving functions
+│  ├─ main.py                # Map/account data retrieving & processing
 │  └─ tokens.py              # Token generation functions
 ├─ tokens/                   # Stored tokens
 ├─ Dockerfile
