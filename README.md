@@ -1,5 +1,7 @@
+[![CD](https://github.com/luniphy/trackmania-medals/actions/workflows/cd.yml/badge.svg)](https://github.com/luniphy/trackmania-medals/actions/workflows/cd.yml)
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-%230db7ed.svg?&logo=docker&logoColor=white)](https://hub.docker.com/r/luniphys/trackmania-medals)
+[![GHCR](https://img.shields.io/badge/GHCR-181717?logo=github)](https://github.com/luniphy/trackmania-medals/pkgs/container/trackmania-medals)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # Trackmania TOTD Gold Medal Tracker
@@ -30,6 +32,7 @@ Browsing through every track in-game to check its medal status is slow and tedio
 - Displays for each track: **Date**, **Track name**, **Time gap (World Record → Gold medal time)**, **Current personal medal**
 - Outputs results both to the console and as a `txt` file on the desktop
 - Summarizes your total medal count of all TOTD maps at the end
+- **Continuous Deployment (CD)**: Automated image pushes to Docker Hub / GHCR with vulnerability check
 
 
 ## Project Structure
@@ -122,12 +125,18 @@ From the repository root, build the Docker image with:
 docker build -t trackmania-medals .
 ```
 
-### Pull from Docker Hub
+### Pull from Docker Hub / GHCR
 
-A prebuilt image is also available on [Docker Hub](https://hub.docker.com/r/luniphys/trackmania-medals):
+Prebuilt imags are also available on [Docker Hub](https://hub.docker.com/r/luniphys/trackmania-medals):
 
 ```bash
 docker pull luniphys/trackmania-medals
+```
+
+And on the [GitHub Container Registry](https://github.com/luniphy/trackmania-medals/pkgs/container/trackmania-medals):
+
+```bash
+docker pull ghcr.io/luniphy/trackmania-medals:latest
 ```
 
 ### Run the container
@@ -138,6 +147,7 @@ docker run --rm -it -p 8765:8765 trackmania-medals
 
 ### Notes
 
+- To run pulled images, use `luniphys/trackmania-medals` or `ghcr.io/luniphy/trackmania-medals` respectively.
 - Run the container in interactive mode: ```-it```
 - You may need to manually open the OAuth URL in your browser to identify with your Ubisoft login. Instructions are shown!
 
