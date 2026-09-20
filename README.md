@@ -130,7 +130,7 @@ docker build -t trackmania-medals .
 Prebuilt imags are also available on [Docker Hub](https://hub.docker.com/r/luniphy/trackmania-medals):
 
 ```bash
-docker pull luniphy/trackmania-medals
+docker pull luniphy/trackmania-medals:latest
 ```
 
 And on the [GitHub Container Registry](https://github.com/luniphy/trackmania-medals/pkgs/container/trackmania-medals):
