@@ -42,5 +42,5 @@ jobs:
         with:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/trackmania-medals:latest
           format: table
-          exit-code: '0' # report only. make '1' to block upload
+          exit-code: '0'
           severity: HIGH,CRITICAL
