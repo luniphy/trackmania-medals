@@ -39,6 +39,7 @@ Browsing through every track in-game to check its medal status is slow and tedio
 
 ```
 trackmania-medals/
+├─ .github/workflows/cd.yml  # CD workflow
 ├─ config/
 │  ├─ accountId.txt          # Your Trackmania account ID
 │  └─ service_account.json   # Ubisoft service account credentials
